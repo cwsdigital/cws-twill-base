@@ -68,4 +68,8 @@ class Homepage extends Model
     public function getCanPublishAttribute() {
         return false;
     }
+
+    public function template() {
+        return $this->belongsTo(Template::class);
+    }
 }
