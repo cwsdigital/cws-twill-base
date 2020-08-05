@@ -55,9 +55,10 @@ class InstallSeeder extends Seeder
                             ->value('id');
 
         // create a contact page
-        DB::table('homepages')->insert([
+        DB::table('pages')->insert([
             'title'         => 'Contact',
             'published'     => 1,
+            'position'      => 0,
             'template_id'   => $contactTemplateId
         ]);
     }

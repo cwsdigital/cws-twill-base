@@ -16,7 +16,7 @@ class CreateTemplatesTable extends Migration
         Schema::create('templates', function (Blueprint $table) {
             $table->id();
             $table->string('uid');
-            $table->string('name');
+            $table->string('title');
             $table->boolean('admin_only')->default(0);
             $table->boolean('show_content_editor')->default(1);
             $table->integer('position')->default(0);
