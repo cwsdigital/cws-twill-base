@@ -134,9 +134,9 @@ class PageController extends ModuleController
     protected function getAvailableTemplates() {
         $role = auth()->user()->role;
         if($role == 'SUPERADMIN' || $role == 'ADMIN') {
-            return Template::pluck('name', 'id');
+            return Template::pluck('title', 'id');
         } else {
-            return Template::forClient()->pluck('name', 'id');
+            return Template::forClient()->pluck('title', 'id');
         }
     }
 }

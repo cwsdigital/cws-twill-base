@@ -72,7 +72,7 @@ class Page extends Model implements Sortable
     ];
 
     public $metadataFallbacks = [
-        'title' => 'page_heading',
+        'title' => 'heading',
         'description' => 'intro_content',
         'og_description' => 'intro_content'
     ];
