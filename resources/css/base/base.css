@@ -1,0 +1,169 @@
+/* ============================================================================
+ *
+ * GLOBAL BASE STYLES
+ *
+ * This file is for global styles across the whole project:
+ *
+ *  - It should be very minimal
+ *  - It should contain only element selectors, as we want low specificity so
+ *  styles declared here can be overridden by the cascaade
+ *  - This file is not concerned with styling every possible base element that
+ *  could appear within a block of content (see components/prose.css)
+ *
+ * Contents
+ *
+ * ========================================================================= */
+
+
+@layer base {
+
+/* ============================================================================
+ *
+ * HTML ELEMENT
+ *
+ * ========================================================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================================================
+ *
+ * BODY ELEMENT
+ *
+ * 1. Set the base font size
+ * 2. Set the base leading
+ * 3. Prevent horizontal overflow
+ * 4. Always display vertical scrollbar to prevent horizontal page shift
+ * 5. Set body to always fill the screen height
+ * ========================================================================= */
+body {
+    @apply  text-base /* [1] */
+            leading-normal /* [2] */
+            overflow-x-auto /* [3] */
+            overflow-y-scroll /* [4] */
+            min-h-screen /* [5] */;
+    color: theme('colors.gray.800', defaultTheme.colors.gray[800]);
+    background: theme('colors.white', defaultTheme.colors[white]);
+}
+
+::selection {
+    background: theme('colors.gray.100', defaultTheme.colors.gray[100]);
+    color: theme('colors.gray.800', defaultTheme.colors.gray[800]);
+}
+
+/* Base focus settings */
+:focus {
+    outline: dotted thin;
+}
+
+:hover:focus {
+    outline:0
+}
+
+main:focus {
+    outline:0
+}
+
+/* ============================================================================
+ *
+ * RAW HEADING STYLES
+ *
+ * ========================================================================= */
+h1, h2, h3, h4 {
+    @apply  font-bold
+            text-gray-800;
+}
+
+h1 {
+    @apply text-3xl mb-lg;
+}
+
+h2 {
+    @apply text-2xl mb-lg;
+}
+
+h3 {
+    @apply text-lg mb-md;
+}
+
+h4 {
+    @apply text-base mb-sm;
+}
+
+h5 {
+    @apply mb-sm;
+}
+
+
+h6 {
+    @apply  text-sm
+            font-bold
+            my-sm;
+}
+
+/* ============================================================================
+ *
+ * RAW LINK STYLES
+ *
+ * 1. Link Color & Style
+ * 2. Default Hover & Focus Styles
+ * 3. Use data-before and data-after to add content/icons before / after link
+ * text - useful for back links etc.
+ *
+ * ========================================================================= */
+
+a { /* [1] */
+    color: theme('colors.blue.700', defaultTheme.colors.blue[700]);
+    text-decoration: underline;
+}
+
+a:hover,
+a:focus { /* [2] */
+    color: theme('colors.blue.900', defaultTheme.colors.blue[900]);
+    text-decoration: none;
+}
+
+a:focus {
+    outline: thin dotted;
+    outline-offset: .25rem;
+}
+
+
+a[data-before]:before {  /* [3] */
+    content: attr(data-before);
+    @apply  inline-block
+            pr-2
+            no-underline;
+}
+
+a[data-after]:after {
+    content: attr(data-after);
+    @apply  inline-block
+            pl-2
+            no-underline;
+}
+
+/* ============================================================================
+ *
+ * BLOCK LEVEL ELEMENTS
+ *
+ * ========================================================================= */
+
+p,
+ul,
+ol,
+dl,
+blockquote,
+pre,
+address,
+table,
+details,
+fieldset,
+figure {
+    @apply my-md max-w-prose;
+}
+
+
+}
+

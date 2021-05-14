@@ -1,0 +1,338 @@
+/* ============================================================================
+ *
+ * PROSE STYLES
+ *
+ * This file is defines sryles for all elements that can be conatined in
+ * free-flowing prose - e.g. content from CMS / WYSIWYG
+ *
+ * - Due to browser, the CSS reset and base styles, this fiel sarts out mostly blank,
+ * as most elemens have sensible defaults.  But this file contains an exhaustive
+ * list of elements you may wish to customise.
+ *
+ * Contents
+ *
+ * 1. Blockquotes
+ * 2. Lists
+ * 3. Details / Summary
+ * 4. Horizontal Rule
+ * 5. Code & Pre-Formatted Text
+ * 6. Links
+ * 7. Text
+ * 8. Tables
+ * 9. Images & Media
+ *
+ *
+ * ========================================================================= */
+
+@layer components {
+
+    .prose {
+
+        /* Apply max character width to all child elements */
+        > * {
+            @apply max-w-prose;
+        }
+
+/* ============================================================================
+ *
+ * 1. BLOCKQUOTES
+ *  - This should probably be handled at a component level,
+ *  - But it is possible that someone could add blockquote from wihtin a wysiwyg
+ *
+ * ========================================================================= */
+
+        blockquote {
+            cite {
+
+            }
+        }
+
+/* ============================================================================
+ *
+ * 2. LISTS
+ *
+ * ========================================================================= */
+
+        dl {
+
+        }
+
+        dt {
+            @apply font-bold;
+        }
+
+        dd {
+
+        }
+
+        ul {
+            @apply  list-disc
+                    pl-md;
+        }
+
+        ol {
+            @apply  list-decimal
+                    pl-md;
+        }
+
+        ul ul,
+        ol ol {
+            @apply my-xs;
+        }
+
+/* ============================================================================
+ *
+ * 3. DETAILS / SUMMARY
+ *
+ * ========================================================================= */
+
+        details {
+
+        }
+
+        summary {
+
+        }
+
+/* ============================================================================
+ *
+ * 4. HORIZOANTAL RULE
+ *
+ * ========================================================================= */
+
+        hr {
+
+        }
+
+/* ============================================================================
+ *
+ * 5. CODE & PRE-FORMATTED TEXT
+ *
+ * ========================================================================= */
+
+        kbd {
+
+        }
+
+        code {
+
+        }
+
+        samp {
+
+        }
+
+        pre {
+
+        }
+
+/* ============================================================================
+ *
+ * 6 .LINKS
+ *
+ * ========================================================================= */
+
+        a {
+
+        }
+
+        a:hover,
+        a:focus {
+
+        }
+
+        a:active {
+
+        }
+
+        a:visited {
+
+        }
+
+        a[target="_blank"]:after,
+        a[rel="external"]:after {
+            content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==");
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+            top: -0.5em;
+        }
+
+/* ============================================================================
+ *
+ * 7. TEXT
+ *
+ * ========================================================================= */
+       /* Strong is used to indicate greater importance */
+        strong {
+            @apply font-bold;
+        }
+
+        /* em is for for adding emphasis */
+        em {
+            @apply italic;
+        }
+
+        /* b is make text stylisitically different without adding importance */
+        b {
+            @apply font-bold;
+        }
+
+        /* i is make text stylisitically different without adding importance */
+        i {
+            @apply italic;
+        }
+
+        u {
+            @apply underline;
+        }
+
+        /* indicate deleted text */
+        del {
+
+        }
+
+        /* indicate inserted text */
+        ins {
+
+        }
+
+        /* strikethrough */
+        s {
+
+        }
+
+        /* superscript and subscript */
+        sub, sup {
+
+        }
+
+        sub {
+
+        }
+
+        sup {
+
+        }
+
+        /* for smallprint */
+        small {
+
+        }
+
+        abbr {
+
+        }
+
+        /* short inline quotations */
+        q {
+
+        }
+
+        cite {
+
+        }
+
+        /* used to indicate a definition */
+        dfn {
+
+        }
+
+        /* used to indicate a highlight */
+        mark {
+
+        }
+
+        /* used for variables */
+        var {
+
+        }
+
+        time {
+
+        }
+
+/* ============================================================================
+ *
+ * 8. TABLES
+ *
+ * ========================================================================= */
+
+
+        table {
+            border-collapse: collapse;
+        }
+
+        table caption {
+            @apply text-sm;
+        }
+
+        thead th,
+        tfoot th {
+            @apply  font-bold
+                    text-left;
+        }
+
+        thead th {
+            @apply border-b border-gray-300
+        }
+
+        tfoot th {
+            @apply border-t border-gray-300
+        }
+
+        th,
+        td {
+            @apply py-xs;
+        }
+
+/* ============================================================================
+ *
+ * 9. IMAGES & MEDIA
+ *
+ * ========================================================================= */
+
+        img {
+
+        }
+
+        figure {
+            img {
+
+            }
+            figcaption {
+
+            }
+        }
+
+        audio {
+
+        }
+
+        video {
+
+        }
+
+        meter {
+
+        }
+
+        progress {
+
+        }
+
+        iframe {
+
+        }
+
+        embed {
+
+        }
+
+        object {
+
+        }
+
+    }
+}

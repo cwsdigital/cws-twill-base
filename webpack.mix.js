@@ -28,7 +28,12 @@ mix.options({
     terser: {},
     purifyCss: false,
     //purifyCss: {},
-    postCss: [require('autoprefixer')],
+    postCss: [
+        require('postcss-import'),
+        require('postcss-nested'),
+        require("tailwindcss"),
+        require("autoprefixer")
+    ],
     clearConsole: false,
     cssNano: {
         calc: false
@@ -42,7 +47,7 @@ mix.copy([
 
 
     // .sass('resources/sass/app-ie11.scss', 'public/css')
-mix.sass('resources/sass/app.scss', 'public/css', );
+mix.postCss("resources/css/app.css", "public/css");
 
 
 
