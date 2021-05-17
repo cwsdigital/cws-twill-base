@@ -1,15 +1,18 @@
 <?php
+namespace Database\Factories;
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
-
-use App\Model;
 use App\Models\Homepage;
-use App\Models\Page;
-use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Homepage::class, function (Faker $faker) {
-    return [
-        'title' => $faker->title,
-        'published' => $faker->boolean,
+class HomepageFactory extends Factory
+{
+    protected $model = Homepage::class;
+
+    public function definition()
+    {
+        return [
+        'title' => $this->faker->title,
+        'published' => $this->faker->boolean,
     ];
-});
+    }
+}

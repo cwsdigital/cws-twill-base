@@ -1,16 +1,21 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
-use App\Model;
 use App\Models\Template;
-use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Template::class, function (Faker $faker) {
-    return [
-        'uid' => $faker->word,
-        'title' => $faker->word,
-        'admin_only' => 0,
-        'show_content_editor' => 1
-    ];
-});
+class TemplateFactory extends Factory
+{
+    protected $model = Template::class;
+
+    public function definition()
+    {
+        return [
+            'uid' => $this->faker->word,
+            'title' => $this->faker->word,
+            'admin_only' => 0,
+            'show_content_editor' => 1
+        ];
+    }
+}

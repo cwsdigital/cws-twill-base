@@ -1,13 +1,16 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
-use App\Model;
 use CwsDigital\TwillMetadata\Models\Metadata;
-use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Metadata::class, function (Faker $faker) {
-    return [
+class MetadataFactory extends Factory
+{
+    protected $model = Metadata::class;
 
-    ];
-});
+    public function definition()
+    {
+        return [];
+    }
+}

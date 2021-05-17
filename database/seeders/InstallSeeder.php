@@ -1,4 +1,5 @@
 <?php
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -34,7 +35,7 @@ class InstallSeeder extends Seeder
         $homepage = factory(App\Models\Homepage::class)->create([
                 'title' => 'Home',
                 'published' => 1
-            ])->each( function($homepage) use ($homeTemplate) {
+            ])->each(function ($homepage) use ($homeTemplate) {
                 $homepage->template()->associate($homeTemplate);
                 $homepage->metadata()->create();
             });
@@ -42,7 +43,7 @@ class InstallSeeder extends Seeder
         $contactpage = factory(App\Models\Page::class)->create([
                 'title' => 'Contact',
                 'published' => 1
-            ])->each( function($page) use ($contactTemplate) {
+            ])->each(function ($page) use ($contactTemplate) {
                 $page->template()->associate($contactTemplate);
                 $page->metadata()->create();
             });
