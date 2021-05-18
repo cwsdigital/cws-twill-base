@@ -6,10 +6,13 @@ use A17\Twill\Models\Behaviors\HasSlug;
 use A17\Twill\Models\Behaviors\HasPosition;
 use A17\Twill\Models\Behaviors\Sortable;
 use A17\Twill\Models\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ArticleCategory extends Model implements Sortable
 {
-    use HasSlug, HasPosition;
+    use HasFactory,
+        HasSlug,
+        HasPosition;
 
     protected $fillable = [
         'published',
@@ -22,9 +25,8 @@ class ArticleCategory extends Model implements Sortable
         'title',
     ];
 
-    public function articles() {
+    public function articles()
+    {
         return $this->hasMany(Article::class);
     }
-
-
 }

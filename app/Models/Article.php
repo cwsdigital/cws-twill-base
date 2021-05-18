@@ -9,10 +9,12 @@ use A17\Twill\Models\Behaviors\HasFiles;
 use A17\Twill\Models\Behaviors\HasRevisions;
 use A17\Twill\Models\Model;
 use App\Models\Behaviours\HasHeading;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Article extends Model
 {
-    use HasBlocks,
+    use HasFactory,
+        HasBlocks,
         HasSlug,
         HasMedias,
         HasFiles,
@@ -76,7 +78,8 @@ class Article extends Model
     public $metadataDefaultOgType = 'website';
     public $metadataDefaultCardType = 'summary_large_image';
 
-    public function category() {
-        return $this->belongsTo(ArticleCategory::class, 'article_category_id' );
+    public function category()
+    {
+        return $this->belongsTo(ArticleCategory::class, 'article_category_id');
     }
 }

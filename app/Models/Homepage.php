@@ -9,10 +9,12 @@ use A17\Twill\Models\Behaviors\HasRevisions;
 use A17\Twill\Models\Model;
 use App\Models\Behaviours\HasHeading;
 use CwsDigital\TwillMetadata\Models\Behaviours\HasMetadata;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Homepage extends Model
 {
-    use HasBlocks,
+    use HasFactory,
+        HasBlocks,
         HasMedias,
         HasFiles,
         HasRevisions,
@@ -65,11 +67,13 @@ class Homepage extends Model
     public $metadataDefaultOgType = 'website';
     public $metadataDefaultCardType = 'summary_large_image';
 
-    public function getCanPublishAttribute() {
+    public function getCanPublishAttribute()
+    {
         return false;
     }
 
-    public function template() {
+    public function template()
+    {
         return $this->belongsTo(Template::class);
     }
 }

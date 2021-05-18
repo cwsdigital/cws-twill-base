@@ -13,10 +13,12 @@ use A17\Twill\Models\Model;
 use App\Models\Behaviours\HasHeading;
 use App\Models\Behaviours\IsNested;
 use CwsDigital\TwillMetadata\Models\Behaviours\HasMetadata;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Page extends Model implements Sortable
 {
-    use HasBlocks,
+    use HasFactory,
+        HasBlocks,
         HasSlug,
         HasMedias,
         HasFiles,
@@ -81,7 +83,8 @@ class Page extends Model implements Sortable
     public $metadataDefaultCardType = 'summary_large_image';
 
 
-    public function template() {
+    public function template()
+    {
         return $this->belongsTo(Template::class);
     }
 }

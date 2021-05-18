@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
-
 use A17\Twill\Models\Model;
 use A17\Twill\Models\User;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Str;
 
 class Enquiry extends Model
 {
+    use HasFactory;
 
     protected $fillable = [
         'name',
@@ -38,20 +39,23 @@ class Enquiry extends Model
         'read_at',
     ];
 
-    public function reader() {
+    public function reader()
+    {
         return $this->belongsTo(User::class, 'read_by');
     }
 
-    public function scopeRead($query) {
+    public function scopeRead($query)
+    {
         return $query->whereRead(true);
     }
 
-    public function scopeUnread($query) {
+    public function scopeUnread($query)
+    {
         return $query->whereRead(false);
     }
 
-    public function setRegardingAttribute($value) {
-        $this->attributes['regarding'] = Str::title( str_replace( '-', ' ', join(', ', $value )));
+    public function setRegardingAttribute($value)
+    {
+        $this->attributes['regarding'] = Str::title(str_replace('-', ' ', join(', ', $value)));
     }
-
 }
