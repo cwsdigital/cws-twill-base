@@ -8,7 +8,6 @@ use App\Models\MenuItem;
 use App\Models\Page;
 use App\Models\Template;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class InstallSeeder extends Seeder
 {
@@ -20,7 +19,7 @@ class InstallSeeder extends Seeder
     public function run()
     {
 
-        /*=====================================================================
+          /*=====================================================================
          *
          * TEMPLATES
          *
@@ -93,33 +92,36 @@ class InstallSeeder extends Seeder
         ]);
 
 
-        $homeItem = MenuItem::firstOrCreate([
+        $homeItem = MenuItem::firstOrNew([
             'title' => 'Home',
+        ], [
             'destination' => 'internal',
-            'menu_id' => $mainMenu->id,
             'position' => 1,
         ]);
         $homeItem->linkable()->associate($homePage);
-        $homeItem->save;
+        $homeItem->menu()->associate($mainMenu);
+        $homeItem->save();
 
-        $sampleItem = MenuItem::firstOrCreate([
+        $sampleItem = MenuItem::firstOrNew([
             'title' => 'Sample',
+        ], [
             'destination' => 'internal',
-            'menu_id' => $mainMenu->id,
             'position' => 2,
         ]);
         $sampleItem->linkable()->associate($samplePage);
-        $sampleItem->save;
+        $sampleItem->menu()->associate($mainMenu);
+        $sampleItem->save();
 
 
-        $contactItem = MenuItem::firstOrCreate([
+        $contactItem = MenuItem::firstOrNew([
             'title' => 'Contact',
+        ], [
             'destination' => 'internal',
-            'menu_id' => $mainMenu->id,
             'position' => 3,
         ]);
         $contactItem->linkable()->associate($contactPage);
-        $contactItem->save;
+        $contactItem->menu()->associate($mainMenu);
+        $contactItem->save();
 
         /*=====================================================================
          *
@@ -131,13 +133,14 @@ class InstallSeeder extends Seeder
             'title' => 'Footer Menu',
         ]);
 
-        $privacyItem = MenuItem::firstOrCreate([
+        $privacyItem = MenuItem::firstOrNew([
             'title' => 'Privacy Policy',
             'destination' => 'internal',
-            'menu_id' => $footerMenu->id,
             'position' => 1,
         ]);
         $privacyItem->linkable()->associate($privacyPage);
-        $privacyItem->save;
+        $privacyItem->menu()->associate($footerMenu);
+        $privacyItem->save();
+    }
     }
 }
