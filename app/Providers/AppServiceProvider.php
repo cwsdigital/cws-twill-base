@@ -27,17 +27,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer(
-            '*',
-            function ($view) {
-                $settings = [];
-                foreach (Setting::all() as $setting) {
-                    $settings[$setting->key] = $setting->value;
-                }
-                $view->with('settings', $settings);
-            }
-        );
-
         Relation::morphMap([
             'articles' => 'App\Models\Article',
             'articleCategories' => 'App\Models\ArticleCategory',

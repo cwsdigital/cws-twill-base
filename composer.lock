@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b9999952174fe224dbe18792ea42eb21",
+    "content-hash": "77af6e6da5f8755a0ad18213312a2ac6",
     "packages": [
         {
             "name": "area17/twill",
-            "version": "2.2.0",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/area17/twill.git",
-                "reference": "2b86782c1ce2c96720b99bd5f021ac95cb291a1d"
+                "reference": "b5a0b52bdf2c7b6fde49e8946d9440fb94fbd166"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/area17/twill/zipball/2b86782c1ce2c96720b99bd5f021ac95cb291a1d",
-                "reference": "2b86782c1ce2c96720b99bd5f021ac95cb291a1d",
+                "url": "https://api.github.com/repos/area17/twill/zipball/b5a0b52bdf2c7b6fde49e8946d9440fb94fbd166",
+                "reference": "b5a0b52bdf2c7b6fde49e8946d9440fb94fbd166",
                 "shasum": ""
             },
             "require": {
@@ -87,9 +87,9 @@
                 "chat": "https://discord.link/twill",
                 "docs": "https://twill.io/docs",
                 "issues": "https://github.com/ifox/twill/issues/",
-                "source": "https://github.com/area17/twill/tree/2.2.0"
+                "source": "https://github.com/area17/twill/tree/2.2.1"
             },
-            "time": "2021-05-13T22:12:22+00:00"
+            "time": "2021-05-17T22:55:35+00:00"
         },
         {
             "name": "artesaos/seotools",
@@ -305,16 +305,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.181.1",
+            "version": "3.183.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "0829df420170e4994767860290a69487a18555f7"
+                "reference": "bf4a4e56859b89ab307033bf695467f6d6042dda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/0829df420170e4994767860290a69487a18555f7",
-                "reference": "0829df420170e4994767860290a69487a18555f7",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/bf4a4e56859b89ab307033bf695467f6d6042dda",
+                "reference": "bf4a4e56859b89ab307033bf695467f6d6042dda",
                 "shasum": ""
             },
             "require": {
@@ -389,9 +389,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.181.1"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.183.0"
             },
-            "time": "2021-05-12T18:13:31+00:00"
+            "time": "2021-05-18T18:13:37+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
@@ -569,16 +569,16 @@
         },
         {
             "name": "cwsdigital/twill-metadata",
-            "version": "v0.2.0",
+            "version": "v0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cwsdigital/twill-metadata.git",
-                "reference": "4a143726b2a7f1075584613b22ba4aed61d0eb5e"
+                "reference": "ed13fe2b4f23318956e6f8b6eae41a5662b61773"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cwsdigital/twill-metadata/zipball/4a143726b2a7f1075584613b22ba4aed61d0eb5e",
-                "reference": "4a143726b2a7f1075584613b22ba4aed61d0eb5e",
+                "url": "https://api.github.com/repos/cwsdigital/twill-metadata/zipball/ed13fe2b4f23318956e6f8b6eae41a5662b61773",
+                "reference": "ed13fe2b4f23318956e6f8b6eae41a5662b61773",
                 "shasum": ""
             },
             "require": {
@@ -605,10 +605,10 @@
                 }
             ],
             "support": {
-                "source": "https://github.com/cwsdigital/twill-metadata/tree/v0.2.0",
+                "source": "https://github.com/cwsdigital/twill-metadata/tree/v0.2.1",
                 "issues": "https://github.com/cwsdigital/twill-metadata/issues"
             },
-            "time": "2021-05-14T15:12:09+00:00"
+            "time": "2021-05-18T21:20:29+00:00"
         },
         {
             "name": "dasprid/enum",
@@ -659,16 +659,16 @@
         },
         {
             "name": "doctrine/cache",
-            "version": "1.11.0",
+            "version": "1.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "a9c1b59eba5a08ca2770a76eddb88922f504e8e0"
+                "reference": "163074496dc7c3c7b8ccbf3d4376c0187424ed81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/a9c1b59eba5a08ca2770a76eddb88922f504e8e0",
-                "reference": "a9c1b59eba5a08ca2770a76eddb88922f504e8e0",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/163074496dc7c3c7b8ccbf3d4376c0187424ed81",
+                "reference": "163074496dc7c3c7b8ccbf3d4376c0187424ed81",
                 "shasum": ""
             },
             "require": {
@@ -738,7 +738,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/cache/issues",
-                "source": "https://github.com/doctrine/cache/tree/1.11.0"
+                "source": "https://github.com/doctrine/cache/tree/1.11.1"
             },
             "funding": [
                 {
@@ -754,7 +754,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-13T14:46:17+00:00"
+            "time": "2021-05-18T16:45:32+00:00"
         },
         {
             "name": "doctrine/dbal",
@@ -1565,16 +1565,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.174.0",
+            "version": "v0.175.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "004c5280f5a26a8acbb6f6af6a792e4872b7648a"
+                "reference": "316cbf9b02c575a140d8cbeca48a3ca0070fcd5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/004c5280f5a26a8acbb6f6af6a792e4872b7648a",
-                "reference": "004c5280f5a26a8acbb6f6af6a792e4872b7648a",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/316cbf9b02c575a140d8cbeca48a3ca0070fcd5a",
+                "reference": "316cbf9b02c575a140d8cbeca48a3ca0070fcd5a",
                 "shasum": ""
             },
             "require": {
@@ -1600,9 +1600,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.174.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.175.0"
             },
-            "time": "2021-05-08T11:20:03+00:00"
+            "time": "2021-05-15T11:18:02+00:00"
         },
         {
             "name": "google/auth",
@@ -2139,16 +2139,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.41.0",
+            "version": "v8.42.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "05417155d886df8710e55c84e12622b52d83c47c"
+                "reference": "55b886683e0a019bcad0d9d70bb781a3de1a6755"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/05417155d886df8710e55c84e12622b52d83c47c",
-                "reference": "05417155d886df8710e55c84e12622b52d83c47c",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/55b886683e0a019bcad0d9d70bb781a3de1a6755",
+                "reference": "55b886683e0a019bcad0d9d70bb781a3de1a6755",
                 "shasum": ""
             },
             "require": {
@@ -2303,7 +2303,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-05-11T14:00:02+00:00"
+            "time": "2021-05-18T15:37:44+00:00"
         },
         {
             "name": "laravel/socialite",

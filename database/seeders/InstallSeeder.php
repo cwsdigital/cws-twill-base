@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Homepage;
+use App\Models\Menu;
+use App\Models\MenuItem;
 use App\Models\Page;
 use App\Models\Template;
 use Illuminate\Database\Seeder;
@@ -17,39 +19,125 @@ class InstallSeeder extends Seeder
      */
     public function run()
     {
-        $genericTemplate = Template::factory()->create([
+
+        /*=====================================================================
+         *
+         * TEMPLATES
+         *
+         * ==================================================================*/
+
+        $genericTemplate = Template::firstOrCreate([
             'uid' => 'generic',
             'title' => 'standard',
         ]);
 
-        $homeTemplate = Template::factory()->create([
+        $homeTemplate = Template::firstOrCreate([
             'uid' => 'home',
             'title' => 'Home',
             'admin_only' => 1,
             'show_content_editor' => 0
         ]);
 
-        $contactTemplate = Template::factory()->create([
+        $contactTemplate = Template::firstOrCreate([
             'uid' => 'contact',
             'title' => 'Contact',
             'admin_only' => 1,
             'show_content_editor' => 0
         ]);
 
-        $homePage = Homepage::factory()->create([
+        /*=====================================================================
+         *
+         * PAGES
+         *
+         * ==================================================================*/
+
+        $homePage = Homepage::firstOrCreate([
             'title' => 'Home',
             'published' => 1
-        ])->each(function ($homepage) use ($homeTemplate) {
-            $homepage->template()->associate($homeTemplate);
-            $homepage->metadata()->create();
-        });
+        ]);
+        $homePage->template()->associate($homeTemplate);
+        $homePage->metadata()->create();
 
-        $contactPage = Page::factory()->create([
+
+        $contactPage = Page::firstOrCreate([
             'title' => 'Contact',
             'published' => 1
-        ])->each(function ($page) use ($contactTemplate) {
-            $page->template()->associate($contactTemplate);
-            $page->metadata()->create();
-        });
+        ]);
+        $contactPage->template()->associate($contactTemplate);
+        $contactPage->metadata()->create();
+
+
+        $samplePage = Page::firstOrCreate([
+            'title' => 'Sample',
+            'published' => 1
+        ]);
+        $samplePage->template()->associate($genericTemplate);
+        $samplePage->metadata()->create();
+
+        $privacyPage = Page::firstOrCreate([
+            'title' => 'Privacy Policy',
+            'published' => 1
+        ]);
+        $privacyPage->template()->associate($genericTemplate);
+        $privacyPage->metadata()->create();
+
+
+        /*=====================================================================
+         *
+         * MAIN MENU
+         *
+         * ==================================================================*/
+
+        $mainMenu = Menu::firstOrCreate([
+            'title' => 'Main Menu',
+        ]);
+
+
+        $homeItem = MenuItem::firstOrCreate([
+            'title' => 'Home',
+            'destination' => 'internal',
+            'position' => 1,
+        ]);
+        $homeItem->linkable()->associate($homePage);
+        $homeItem->menu()->associate($mainMenu);
+        $homeItem->save;
+
+        $sampleItem = MenuItem::firstOrCreate([
+            'title' => 'Sample',
+            'destination' => 'internal',
+            'position' => 2,
+        ]);
+        $sampleItem->linkable()->associate($samplePage);
+        $sampleItem->menu()->associate($mainMenu);
+        $sampleItem->save;
+
+
+        $contactItem = MenuItem::firstOrCreate([
+            'title' => 'Contact',
+            'destination' => 'internal',
+            'position' => 3,
+        ]);
+        $contactItem->linkable()->associate($contactPage);
+        $contactItem->menu()->associate($mainMenu);
+        $contactItem->save;
+
+        /*=====================================================================
+         *
+         * FOOTER MENU
+         *
+         * ==================================================================*/
+
+        $footerMenu = Menu::firstOrCreate([
+            'title' => 'Footer Menu',
+        ]);
+
+        $privacyItem = MenuItem::firstOrCreate([
+            'title' => 'Privacy Policy',
+            'destination' => 'internal',
+            'position' => 1,
+        ]);
+        $privacyItem->linkable()->associate($privacyPage);
+        $privacyItem->menu()->associate($footerMenu);
+        $privacyItem->save;
     }
 }
