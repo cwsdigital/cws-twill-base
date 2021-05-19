@@ -96,29 +96,29 @@ class InstallSeeder extends Seeder
         $homeItem = MenuItem::firstOrCreate([
             'title' => 'Home',
             'destination' => 'internal',
+            'menu_id' => $mainMenu->id,
             'position' => 1,
         ]);
         $homeItem->linkable()->associate($homePage);
-        $homeItem->menu()->associate($mainMenu);
         $homeItem->save;
 
         $sampleItem = MenuItem::firstOrCreate([
             'title' => 'Sample',
             'destination' => 'internal',
+            'menu_id' => $mainMenu->id,
             'position' => 2,
         ]);
         $sampleItem->linkable()->associate($samplePage);
-        $sampleItem->menu()->associate($mainMenu);
         $sampleItem->save;
 
 
         $contactItem = MenuItem::firstOrCreate([
             'title' => 'Contact',
             'destination' => 'internal',
+            'menu_id' => $mainMenu->id,
             'position' => 3,
         ]);
         $contactItem->linkable()->associate($contactPage);
-        $contactItem->menu()->associate($mainMenu);
         $contactItem->save;
 
         /*=====================================================================
@@ -134,10 +134,10 @@ class InstallSeeder extends Seeder
         $privacyItem = MenuItem::firstOrCreate([
             'title' => 'Privacy Policy',
             'destination' => 'internal',
+            'menu_id' => $footerMenu->id,
             'position' => 1,
         ]);
         $privacyItem->linkable()->associate($privacyPage);
-        $privacyItem->menu()->associate($footerMenu);
         $privacyItem->save;
     }
 }
