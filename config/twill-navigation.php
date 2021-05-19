@@ -40,6 +40,10 @@ return [
         'title' => 'Enquiries',
         'module' => true
     ],
+    'menus' => [
+        'title' => 'Menus',
+        'module' => true
+    ],
     'settings' => [
         'title' => 'Settings',
         'route' => 'admin.settings',
