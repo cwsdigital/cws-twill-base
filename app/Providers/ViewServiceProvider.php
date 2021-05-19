@@ -5,7 +5,7 @@ namespace App\Providers;
 use App\View\Composers\MainMenuComposer;
 use App\View\Composers\SettingsComposer;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\View\View;
+use Illuminate\Support\Facades\View;
 
 class ViewServiceProvider extends ServiceProvider
 {
