@@ -5,6 +5,7 @@ namespace App\Providers;
 use A17\Twill\Models\Setting;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -26,6 +27,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::composer(
+            '*',
+            function ($view) {
+                $settings = [];
+                foreach (Setting::all() as $setting) {
+                    $settings[$setting->key] = $setting->value;
+                }
+                $view->with('settings', $settings);
+            }
+        );
 
         Relation::morphMap([
             'articles' => 'App\Models\Article',
@@ -38,9 +49,9 @@ class AppServiceProvider extends ServiceProvider
             return "<?php echo array_key_exists($key, \$settings) ? \$settings[$key] : '' ; ?>";
         });
 
-        Blade::if('ifsetting', function($key) {
+        Blade::if('ifsetting', function ($key) {
             $setting = Setting::where('key', $key)->first();
-            if( $setting ) {
+            if ($setting) {
                 return (bool) $setting->value;
             }
             return false;
