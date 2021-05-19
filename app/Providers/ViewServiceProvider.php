@@ -4,9 +4,10 @@ namespace App\Providers;
 
 use App\View\Composers\MainMenuComposer;
 use App\View\Composers\SettingsComposer;
+use Illuminate\Support\ServiceProvider;
 use Illuminate\View\View;
 
-class ViewServiceProvider
+class ViewServiceProvider extends ServiceProvider
 {
     public function register()
     {
