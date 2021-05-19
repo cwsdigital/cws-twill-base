@@ -142,5 +142,4 @@ class InstallSeeder extends Seeder
         $privacyItem->menu()->associate($footerMenu);
         $privacyItem->save();
     }
-    }
 }
