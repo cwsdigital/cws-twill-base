@@ -19,7 +19,7 @@ class InstallSeeder extends Seeder
     public function run()
     {
 
-          /*=====================================================================
+        /*=====================================================================
          *
          * TEMPLATES
          *
@@ -55,6 +55,7 @@ class InstallSeeder extends Seeder
             'published' => 1
         ]);
         $homePage->template()->associate($homeTemplate);
+        $homePage->save();
         $homePage->metadata()->create();
 
 
@@ -63,6 +64,7 @@ class InstallSeeder extends Seeder
             'published' => 1
         ]);
         $contactPage->template()->associate($contactTemplate);
+        $contactPage->save();
         $contactPage->metadata()->create();
 
 
@@ -71,6 +73,7 @@ class InstallSeeder extends Seeder
             'published' => 1
         ]);
         $samplePage->template()->associate($genericTemplate);
+        $samplePage->save();
         $samplePage->metadata()->create();
 
         $privacyPage = Page::firstOrCreate([
@@ -78,6 +81,7 @@ class InstallSeeder extends Seeder
             'published' => 1
         ]);
         $privacyPage->template()->associate($genericTemplate);
+        $privacyPage->save();
         $privacyPage->metadata()->create();
 
 
@@ -95,7 +99,7 @@ class InstallSeeder extends Seeder
         $homeItem = MenuItem::firstOrNew([
             'title' => 'Home',
         ], [
-            'destination' => 'internal',
+            'destination' => 'homepage',
             'position' => 1,
         ]);
         $homeItem->linkable()->associate($homePage);

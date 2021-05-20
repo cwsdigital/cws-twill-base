@@ -1,17 +1,16 @@
 # CWS Twill Base Project
 
-`git clone https://github.com/cwsdigital/cws-twill-base project-name && cd
-project-name && composer install`
+`composer create-project -s dev cwsdigital/twill-base {project-name}`
 
-`cp .env.exaple .env`
-
-edit env file
-
-`artisan key:generate`
+edit env file and configure your DB connection
 
 `artisan twill:install`
 
 `artisan db:seed --class=InstallSeeder`
+
+`npm install`
+
+`npm run dev`
 
 ## Security Vulnerabilities
 
