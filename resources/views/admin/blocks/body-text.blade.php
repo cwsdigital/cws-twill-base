@@ -1,3 +1,6 @@
+@twillBlockTitle('Body Text')
+@twillBlockIcon('text')
+
 @formField('wysiwyg', [
 'name' => 'body_text',
 'label' => 'Content',

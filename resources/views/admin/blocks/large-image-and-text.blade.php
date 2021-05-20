@@ -1,3 +1,6 @@
+@twillBlockTitle('Large Image & Text')
+@twillBlockIcon('image-text')
+
 <x-formColumns>
     <x-slot name="left">
         @formField('medias', [
