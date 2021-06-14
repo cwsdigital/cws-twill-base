@@ -2,7 +2,7 @@
 
 @section('content')
     @if($page->template)
-        @includeFirst(["site.templates.{$page->template->slug}", 'site.templates.generic'])
+        @includeFirst(["site.templates.{$page->template->uid}", 'site.templates.generic'])
     @else
         @include('site.templates.generic')
     @endif

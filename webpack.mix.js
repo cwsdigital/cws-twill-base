@@ -45,6 +45,9 @@ mix.copy([
     'node_modules/alpinejs/dist/alpine-ie11.js',
 ], 'public/js')
 
+mix.copyDirectory('resources/js/components/**', 'public/js');
+
+mix.copyDirectory('resources/fonts', 'public');
 
     // .sass('resources/sass/app-ie11.scss', 'public/css')
 mix.postCss("resources/css/app.css", "public/css");
