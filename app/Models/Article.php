@@ -9,6 +9,7 @@ use A17\Twill\Models\Behaviors\HasFiles;
 use A17\Twill\Models\Behaviors\HasRevisions;
 use A17\Twill\Models\Model;
 use App\Models\Behaviours\HasHeading;
+use CwsDigital\TwillMetadata\Models\Behaviours\HasMetadata;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Article extends Model
@@ -19,7 +20,8 @@ class Article extends Model
         HasMedias,
         HasFiles,
         HasRevisions,
-        HasHeading;
+        HasHeading,
+        HasMetadata;
 
     protected $fillable = [
         'publish_start_date',
