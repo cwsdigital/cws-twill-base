@@ -93,9 +93,18 @@ class Setup extends Command
         );
 
         if ($this->confirm('Are these details correct?', true)) {
-            $this->call('env:set db_database '.$this->dbName);
-            $this->call('env:set db_username '.$this->dbUser);
-            $this->call('env:set db_username '.$this->dbPassword);
+            $this->call('env:set',[
+                'key' => 'db_database',
+                'value' => $this->dbName]
+            );
+            $this->call('env:set', [
+                'key' => 'db_username',
+                'value' => $this->dbUser
+            ]);
+            $this->call('env:set', [
+                'key' => 'db_password',
+                'value' => $this->dbPassword
+            ]);
         } else {
             $this->promptDatabaseDetails();
         }
@@ -115,20 +124,29 @@ class Setup extends Command
 
     public function installTwill()
     {
+        $this->call('config:clear');
+        $this->call('cache:clear');
+
         $this->call('twill:install');
     }
 
     public function installCoreCapsules()
     {
         foreach ($this->coreCapsules as $name => $repository) {
-            $this->call('twill:capsule:install '.$repository);
+            $this->call('twill:capsule:install', [
+                'capsule' => $repository,
+                '--copy'
+            ]);
         }
     }
 
     public function installExtraCapsules()
     {
         foreach ($this->extraCapsules as $name => $repository) {
-            $this->call('twill:capsule:install '.$repository);
+            $this->call('twill:capsule:install', [
+                'capsule' => $repository,
+                '--copy'
+            ]);
         }
     }
 
