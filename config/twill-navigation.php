@@ -49,8 +49,9 @@ return [
         'route' => 'admin.settings',
         'params' => ['section' => 'contact'],
         'primary_navigation' => [
-            'general' => [
-                'title' => 'Contact',
+
+            'contact' => [
+                'title' => 'Contact Details',
                 'route' => 'admin.settings',
                 'params' => ['section' => 'contact']
             ],
@@ -58,6 +59,14 @@ return [
                 'title' => 'SEO',
                 'route' => 'admin.settings',
                 'params' => ['section' => 'seo']
+            ],
+            'menus' => [
+                'title' => 'Menus',
+                'module' => true
+            ],
+            'redirects' => [
+                'title' => 'Redirects',
+                'module' => true
             ],
         ]
     ],

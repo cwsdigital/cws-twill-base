@@ -1,85 +1,87 @@
 <?php
 
 return [
-    'block_single_layout' => 'site.layouts.block', // layout to use when rendering a single block in the editor
-    'block_views_path' => 'site.blocks', // path where a view file per block type is stored
-    'block_views_mappings' => [], // custom mapping of block types and views
-    'block_preview_render_childs' => true, // indicates if childs should be rendered when using repeater in blocks
-    'block_presenter_path' => null, // allow to set a custom presenter to a block model
-    // Indicates if blocks templates should be inlined in HTML.
-    // When setting to false, make sure to build Twill with your all your custom blocks.
-    'inline_blocks_templates' => true,
-    'custom_vue_blocks_resource_path' => 'assets/js/blocks',
-    'use_twill_blocks' => ['text', 'image'],
-    'crops' => [
-        'full_image' => [
-            'default' => [
-                [
-                    'name' => 'default',
-                    'ratio' => 3 / 2,
-                    'minValues' => [
-                        'width' => 1800,
-                        'height' => 1200,
-                    ],
-                ],
-            ],
-            'square' => [
-                [
-                    'name' => 'square',
-                    'ratio' => 1
-                ]
-            ]
+    'block_editor' => [
+        'crops' => [
+
         ],
-        'aside_image' => [
-            'default' => [
-                [
-                    'name' => 'default',
-                    'ratio' => 3 / 2,
-                    'minValues' => [
-                        'width' => 1200,
-                        'height' => 800,
+        'use_twill_blocks' => ['text', 'image'],
+        'directories' => [
+            'source' => [
+                'blocks' => [
+                    [
+                        'path' => base_path('vendor/area17/twill/src/Commands/stubs/blocks'),
+                        'source' => A17\Twill\Services\Blocks\Block::SOURCE_TWILL,
+                    ],
+                    [
+                        'path' => resource_path('views/admin/blocks'),
+                        'source' => A17\Twill\Services\Blocks\Block::SOURCE_APP,
+                    ],
+                ],
+                'repeaters' => [
+                    [
+                        'path' => resource_path('views/admin/repeaters'),
+                        'source' => A17\Twill\Services\Blocks\Block::SOURCE_APP,
+                    ],
+                    [
+                        'path' => app_path('Twill/Capsules/Menus/resources/views/admin/repeaters'),
+                        'source' => A17\Twill\Services\Blocks\Block::SOURCE_APP,
+                    ],
+                    [
+                        'path' => app_path('Twill/Capsules/People/resources/views/admin/repeaters'),
+                        'source' => A17\Twill\Services\Blocks\Block::SOURCE_APP,
+                    ],
+                    [
+                        'path' => base_path('vendor/area17/twill/src/Commands/stubs/repeaters'),
+                        'source' => A17\Twill\Services\Blocks\Block::SOURCE_TWILL,
                     ],
                 ],
             ],
-            'square' => [
-                [
-                    'name' => 'square',
-                    'ratio' => 1
-                ]
-            ]
         ],
     ],
-    'directories' => [
-        'source' => [
-            'blocks' => [
-                [
-                    'path' => base_path('vendor/area17/twill/src/Commands/stubs/blocks'),
-                    'source' => A17\Twill\Services\Blocks\Block::SOURCE_TWILL,
-                ],
-                [
-                    'path' => resource_path('views/admin/blocks'),
-                    'source' => A17\Twill\Services\Blocks\Block::SOURCE_APP,
-                ],
+    'capsules' => [
+        'list' => [
+            [
+                'name' => 'Homepages',
+                'enabled' => true,
             ],
-            'repeaters' => [
-                [
-                    'path' => resource_path('views/admin/repeaters'),
-                    'source' => A17\Twill\Services\Blocks\Block::SOURCE_APP,
-                ],
-                [
-                    'path' => base_path('vendor/area17/twill/src/Commands/stubs/repeaters'),
-                    'source' => A17\Twill\Services\Blocks\Block::SOURCE_TWILL,
-                ],
+            [
+                'name' => 'Pages',
+                'enabled' => true
             ],
-            'icons' => [
-                base_path('vendor/area17/twill/frontend/icons'),
-                resource_path('views/admin/icons'),
+            [
+                'name' => 'Articles',
+                'enabled' => false
             ],
+            [
+                'name' => 'People',
+                'enabled' => false
+            ],
+            [
+                'name' => 'Menus',
+                'enabled' => true,
+            ],
+            [
+                'name' => 'Enquiries',
+                'enabled' => true
+            ],
+            [
+                'name' => 'Categories',
+                'enabled' => false
+            ],
+            [
+                'name' => 'Redirects',
+                'enabled' => true
+            ]
+        ]
+    ],
+    'dashboard' => [
+        'modules' => [
+
         ],
-        'destination' => [
-            'make_dir' => true,
-            'blocks' => resource_path('views/admin/blocks'),
-            'repeaters' => resource_path('views/admin/repeaters'),
+        'analytics' => [
+            'enabled' => false,
+            'service_account_credentials_json' => '',
         ],
     ],
     'settings' => [

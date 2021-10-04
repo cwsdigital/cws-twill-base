@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use App\Models\CaseStudy;
 use CwsDigital\TwillMetadata\Traits\SetsMetadata;
 
 class ArticleController extends Controller
