@@ -5,9 +5,10 @@ namespace Database\Seeders;
 
 use A17\Twill\Services\Capsules\Manager;
 use App\Twill\Capsules\Homepages\Models\Homepage;
+use App\Twill\Capsules\Menus\Models\Menu;
+use App\Twill\Capsules\Pages\Models\Page;
 use App\Twill\Capsules\Menus\Repositories\MenuItemRepository;
 use App\Twill\Capsules\Menus\Repositories\MenuRepository;
-use App\Twill\Capsules\Pages\Repositories\PageRepository;
 use Illuminate\Database\Seeder;
 
 class MenuSeeder extends Seeder
@@ -17,11 +18,10 @@ class MenuSeeder extends Seeder
         $capsuleManager = new Manager();
         $menuRepository = app(MenuRepository::class);
         $menuItemRepository = app(MenuItemRepository::class);
-        $pageRepository = app(PageRepository::class);
 
         if($capsuleManager->capsuleExists('menus')) {
 
-            $mainMenu = $menuRepository->forSlug('main-menu');
+            $mainMenu = Menu::forSlug('main-menu')->first();
             if(!$mainMenu ) {
                 $mainMenu = $menuRepository->create([
                     'title' => [
@@ -31,7 +31,7 @@ class MenuSeeder extends Seeder
                 ]);
             }
 
-            $footerMenu = $menuRepository->forSlug('footer-menu');
+            $footerMenu = Menu::forSlug('footer-menu')->first();
             if(!$footerMenu) {
                 $footerMenu = $menuRepository->create([
                     'title' => [
@@ -46,65 +46,67 @@ class MenuSeeder extends Seeder
 
                 if ($homePage) {
 
-                    $menuItemRepository->create([
+                    $mainHome = $menuItemRepository->create([
                         'title' => [
                             config('app.locale') => 'Home',
                         ],
                         'menu_id' => $mainMenu->id,
-                        'linkable_id' => $homePage->id,
-                        'linkable_type' => 'homepage',
                     ]);
 
-                    $menuItemRepository->create([
+                    $footerHome = $menuItemRepository->create([
                         'title' => [
                             config('app.locale') => 'Home',
                         ],
                         'menu_id' => $footerMenu->id,
-                        'linkable_id' => $homePage->id,
-                        'linkable_type' => 'homepages',
                     ]);
+
+                    $mainHome->linkable()->associate($homePage);
+                    $mainHome->save();
+
+                    $footerHome->linkable()->associate($homePage);
+                    $footerHome->save();
 
                 }
             }
 
             if ($capsuleManager->capsuleExists('pages')) {
-                $aboutPage = $pageRepository->forSlug('about');
+                $aboutPage = Page::forSlug('about')->first();
 
                 if ($aboutPage) {
-                    $menuItemRepository->create([
+                    $item = menuItemRepository->create([
                         'title' => [
                             config('app.locale') => 'About',
                         ],
                         'menu_id' => $mainMenu->id,
-                        'linkable_id' => $aboutPage->id,
-                        'linkable_type' => 'pages',
                     ]);
+
+                    $item->linkable()->associate($aboutPage);
                 }
 
-                $contactPage = $pageRepository->forSlug('contact');
+                $contactPage = Page::forSlug('contact')->first();
 
                 if ($contactPage) {
-                    $menuItemRepository->create([
+                    $item = $menuItemRepository->create([
                         'title' => [
                             config('app.locale') => 'About',
                         ],
                         'menu_id' => $mainMenu->id,
-                        'linkable_id' => $contactPage->id,
-                        'linkable_type' => 'pages',
                     ]);
+
+                    $item->linkable()->associate($contactPage);
                 }
 
-                $privacyPage = $pageRepository->forSlug('privacy-policy');
+                $privacyPage = Page::forSlug('privacy-policy')->first();
 
                 if ($privacyPage) {
-                    $menuItemRepository->create([
+                    $item = $menuItemRepository->create([
                         'title' => [
                             config('app.locale') => 'About',
                         ],
                         'menu_id' => $mainMenu->id,
-                        'linkable_id' => $privacyPage->id,
-                        'linkable_type' => 'pages',
                     ]);
+
+                    $item->linkable()->associate($privacyPage);
                 }
             }
         }
