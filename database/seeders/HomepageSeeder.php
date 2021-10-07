@@ -17,7 +17,7 @@ class HomepageSeeder extends Seeder
         $capsuleManager = new Manager();
         $homepageRepository = app(HomepageRepository::class);
 
-        if ($capsuleManager->capsuleExists('base') && $capsuleManager->capsuleExists('home')) {
+        if ($capsuleManager->capsuleExists('base') && $capsuleManager->capsuleExists('homepages')) {
 
             $template = Template::firstOrCreate([
                 'uid' => 'home',

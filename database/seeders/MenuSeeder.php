@@ -21,19 +21,25 @@ class MenuSeeder extends Seeder
 
         if($capsuleManager->capsuleExists('menus')) {
 
-            $mainMenu = $menuRepository->create([
-                'title' => [
-                    config('app.locale') => 'Main Menu',
-                ],
-                'published' => true,
-            ]);
+            $mainMenu = $menuRepository->forSlug('main-menu');
+            if(!$mainMenu ) {
+                $mainMenu = $menuRepository->create([
+                    'title' => [
+                        config('app.locale') => 'Main Menu',
+                    ],
+                    'published' => true,
+                ]);
+            }
 
-            $footerMenu = $menuRepository->create([
-                'title' => [
-                    config('app.locale') => 'Footer Menu',
-                ],
-                'published' => true,
-            ]);
+            $footerMenu = $menuRepository->forSlug('footer-menu');
+            if(!$footerMenu) {
+                $footerMenu = $menuRepository->create([
+                    'title' => [
+                        config('app.locale') => 'Footer Menu',
+                    ],
+                    'published' => true,
+                ]);
+            }
 
             if ($capsuleManager->capsuleExists('homepages')) {
                 $homePage = Homepage::first();
@@ -55,7 +61,7 @@ class MenuSeeder extends Seeder
                         ],
                         'menu_id' => $footerMenu->id,
                         'linkable_id' => $homePage->id,
-                        'linkable_type' => 'homepage',
+                        'linkable_type' => 'homepages',
                     ]);
 
                 }
@@ -71,7 +77,7 @@ class MenuSeeder extends Seeder
                         ],
                         'menu_id' => $mainMenu->id,
                         'linkable_id' => $aboutPage->id,
-                        'linkable_type' => 'homepage',
+                        'linkable_type' => 'pages',
                     ]);
                 }
 
@@ -84,7 +90,7 @@ class MenuSeeder extends Seeder
                         ],
                         'menu_id' => $mainMenu->id,
                         'linkable_id' => $contactPage->id,
-                        'linkable_type' => 'homepage',
+                        'linkable_type' => 'pages',
                     ]);
                 }
 
@@ -97,7 +103,7 @@ class MenuSeeder extends Seeder
                         ],
                         'menu_id' => $mainMenu->id,
                         'linkable_id' => $privacyPage->id,
-                        'linkable_type' => 'homepage',
+                        'linkable_type' => 'pages',
                     ]);
                 }
             }

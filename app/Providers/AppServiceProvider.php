@@ -28,10 +28,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Relation::morphMap([
-            'articles' => 'App\Models\Article',
-            'articleCategories' => 'App\Models\ArticleCategory',
-            'homepages' => 'App\Models\Homepage',
-            'pages' =>  'App\Models\Page',
+            'homepages' => 'App\Twill\Capsules\Homepages\Models\Homepage',
+            'pages' =>  'App\Twill\Capsules\Homepages\Models\Page',
         ]);
 
         Blade::directive('setting', function ($key) {

@@ -27,7 +27,8 @@ class Seed extends Command
     public function migrateDatabase()
     {
         // we use passthru to ensure full env/config is reloaded with new values
-        passthru('php artisan config:cache');
+        $this->call('cache:clear');
+        $this->call('config:cache');
         passthru('php artisan migrate');
     }
 
