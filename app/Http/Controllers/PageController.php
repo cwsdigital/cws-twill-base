@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use A17\Twill\Models\Model;
-use App\Models\Homepage;
-use App\Models\Page;
+use App\Twill\Capsules\Pages\Models\Homepage;
+use App\Twill\Capsules\Pages\Models\Page;
 use CwsDigital\TwillMetadata\Traits\SetsMetadata;
 
 class PageController extends Controller
@@ -71,11 +71,6 @@ class PageController extends Controller
             $breadcrumbs["$page->title"] = route('page.show', $page->fullSlug);
         });
         return $breadcrumbs;
-    }
-
-    public function getTemplateVars($page, $data)
-    {
-        return $data;
     }
 
 }

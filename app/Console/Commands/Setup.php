@@ -24,6 +24,7 @@ class Setup extends Command
     ];
 
     public array $availableCapsules = [
+        'Enquiries' => 'cwsdigital/twill-capsule-enquiries',
         'Articles' => 'cwsdigital/twill-capsule-articles',
         'Categories' => 'cwsdigital/twill-capsule-categories',
         'People' => 'cwsdigital/twill-capsule-people',
