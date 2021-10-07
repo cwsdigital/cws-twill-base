@@ -95,6 +95,9 @@ class InstallTwill extends Command
             'key' => 'admin_app_path',
             'value' => 'admin',
         ]);
+
+        $this->call('config:clear');
+        $this->call('cache:clear');
     }
 
     public function installTwill()

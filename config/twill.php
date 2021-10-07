@@ -39,42 +39,6 @@ return [
             ],
         ],
     ],
-    'capsules' => [
-        'list' => [
-            [
-                'name' => 'Homepages',
-                'enabled' => true,
-            ],
-            [
-                'name' => 'Pages',
-                'enabled' => true
-            ],
-            [
-                'name' => 'Articles',
-                'enabled' => false
-            ],
-            [
-                'name' => 'People',
-                'enabled' => false
-            ],
-            [
-                'name' => 'Menus',
-                'enabled' => true,
-            ],
-            [
-                'name' => 'Enquiries',
-                'enabled' => true
-            ],
-            [
-                'name' => 'Categories',
-                'enabled' => false
-            ],
-            [
-                'name' => 'Redirects',
-                'enabled' => true
-            ]
-        ]
-    ],
     'dashboard' => [
         'modules' => [
 
