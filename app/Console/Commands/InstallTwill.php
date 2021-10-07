@@ -105,7 +105,8 @@ class InstallTwill extends Command
         $this->call('config:clear');
         $this->call('cache:clear');
 
-        $this->call('twill:install');
+        // we use passthru to ensure full env/config is reloaded with new values
+        passthru('php artisan twill:install');
     }
 
     public function finish() {

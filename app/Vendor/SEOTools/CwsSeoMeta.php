@@ -25,7 +25,6 @@ class CwsSEOMeta extends SEOMeta
 
         $html = [];
 
-
         if ($description) {
             $html[] = "<meta name=\"description\" content=\"{$description}\">";
         }

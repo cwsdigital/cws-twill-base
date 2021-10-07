@@ -29,6 +29,7 @@ class Seed extends Command
         $this->call('config:clear');
         $this->call('cache:clear');
 
+        // we use passthru to ensure full env/config is reloaded with new values
         passthru('php artisan migrate');
     }
 
