@@ -23,8 +23,6 @@ class InstallTwill extends Command
     {
         $this->promptDatabaseDetails();
 
-        $this->setDatabaseDetails();
-
         $this->promptAppUrl();
 
         $this->setAppUrl();
@@ -36,6 +34,8 @@ class InstallTwill extends Command
         $this->dbName = $this->ask('What is the database name?');
         $this->dbUser = $this->ask('What is the database user?');
         $this->dbPassword = $this->secret('What is the database password?');
+
+        $this->setDatabaseDetails();
     }
 
     public function setDatabaseDetails()
@@ -63,14 +63,19 @@ class InstallTwill extends Command
                     'key' => 'db_database',
                     'value' => $this->dbName]
             );
+            config(['database.connections.mysql.database' => $this->dbName]);
+
             $this->call('env:set', [
                 'key' => 'db_username',
                 'value' => $this->dbUser
             ]);
+            config(['database.connections.mysql.username' =>  $this->dbUser]);
+
             $this->call('env:set', [
                 'key' => 'db_password',
                 'value' => $this->dbPassword
             ]);
+            config(['database.connections.mysql.password' => $this->dbPassword]);
         } else {
             $this->promptDatabaseDetails();
         }
@@ -96,16 +101,16 @@ class InstallTwill extends Command
             'value' => 'admin',
         ]);
 
-        $this->call('config:clear');
-        $this->call('cache:clear');
+//        $this->call('cache:clear');
+//        $this->call('config:clear');
     }
 
     public function installTwill()
     {
-        $this->call('config:clear');
-        $this->call('cache:clear');
-
         // we use passthru to ensure full env/config is reloaded with new values
+//        passthru('php artisan config:clear');
+//        passthru('php artisan cache:clear');
+        passthru('php artisan config:cache');
         passthru('php artisan twill:install');
     }
 
