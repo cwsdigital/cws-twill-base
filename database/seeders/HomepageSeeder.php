@@ -28,7 +28,7 @@ class HomepageSeeder extends Seeder
 
             $homePage = Homepage::first();
 
-            if(!$homepage) {
+            if(!$homePage) {
                 return $homepageRepository->create([
                     'title' => [
                         config('app.locale') => 'Home',
