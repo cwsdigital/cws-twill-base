@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use A17\Twill\Models\Model;
-use App\Twill\Capsules\Pages\Models\Homepage;
+use App\Twill\Capsules\Homepages\Models\Homepage;
 use App\Twill\Capsules\Pages\Models\Page;
 use CwsDigital\TwillMetadata\Traits\SetsMetadata;
 

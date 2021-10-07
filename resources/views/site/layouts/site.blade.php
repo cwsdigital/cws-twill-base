@@ -48,10 +48,10 @@
 
 </head>
 <body class="" onload="">
-    @include('site.partials.header')
+    <x-header></x-header>
     <main id="main">
         @yield('content')
     </main>
-    @include('site.partials.footer')
+    <x-footer></x-footer>
 </body>
 </html>

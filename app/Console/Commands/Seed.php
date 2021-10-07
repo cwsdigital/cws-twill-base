@@ -29,7 +29,7 @@ class Seed extends Command
         $this->call('config:clear');
         $this->call('cache:clear');
 
-        $this->call('migrate');
+        passthru('php artisan migrate');
     }
 
     public function seed()

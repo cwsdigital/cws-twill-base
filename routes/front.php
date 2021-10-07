@@ -1,15 +1,19 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [PageController::class, 'show'])->name('home');
+
+// Other app routes go first
 
 
+// Homepage
+Route::get('/', [PageController::class, 'home'])->name('home');
 
+//Sitemap
+Route::get('sitemap', [SitemapController::class]);
 
-
-Route::get('sitemap', 'SitemapController');
-
-Route::get('/{slug}', 'PageController@show')->where('slug', '.*')
+// Nested Pages
+Route::get('/{slug}', [PageController::class, 'show'])->where('slug', '.*')
      ->name('page.show');
