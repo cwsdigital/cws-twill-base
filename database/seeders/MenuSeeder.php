@@ -73,7 +73,7 @@ class MenuSeeder extends Seeder
                 $aboutPage = Page::forSlug('about')->first();
 
                 if ($aboutPage) {
-                    $item = menuItemRepository->create([
+                    $item = $menuItemRepository->create([
                         'title' => [
                             config('app.locale') => 'About',
                         ],
