@@ -7,13 +7,12 @@ namespace App\Vendor\SEOTools;
 use Artesaos\SEOTools\SEOMeta;
 use Illuminate\Support\Arr;
 
-class CwsSeoMeta extends SEOMeta
+class CwsSEOMeta extends SEOMeta
 {
     public function generate($minify = false)
     {
         $this->loadWebMasterTags();
 
-        $title = $this->getTitle();
         $description = $this->getDescription();
         $keywords = $this->getKeywords();
         $metatags = $this->getMetatags();
