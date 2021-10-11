@@ -2,7 +2,7 @@
 
 namespace App\View\Composers;
 
-use App\Models\Menu;
+use App\Twill\Capsules\Menus\Models\Menu;
 use Illuminate\View\View;
 
 class FooterMenuComposer

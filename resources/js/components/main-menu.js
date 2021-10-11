@@ -1,19 +1,30 @@
+import tailwindTheme from '../tailwindTheme';
 
-window.mainMenu = function() {
+export default function() {
     return {
-        breakpoint: null,
-        expanded: window.matchMedia('(min-width: '+this.breakpoint+')').matches,
-        showToggle: window.matchMedia('(max-width: '+this.breakpoint+')').matches,
-        update() {
-            this.expanded = window.matchMedia('(min-width: '+this.breakpoint+')').matches;
-            this.showToggle = !this.expanded,
+
+        init() {
+            this.setBreakpoint();
+            this.update();
         },
+
+        breakpoint: null,
+
+        isDesktop: window.matchMedia('(min-width: '+this.breakpoint+')').matches,
+
+        isOpen: false,
+
+        //showToggle: window.matchMedia('(max-width: '+this.breakpoint+')').matches,
+
+        update() {
+            this.isDesktop = window.matchMedia('(min-width: '+this.breakpoint+')').matches;
+            //this.showToggle = !this.isDesktop;
+        },
+
         setBreakpoint() {
             const bp = this.$el.dataset.breakpoint;
-            const bpVal = tailwindTheme.screens[bp] ?? bp;
-            this.breakpoint = bpVal;
+            this.breakpoint = tailwindTheme.screens[bp] ?? bp;
         },
+
     }
 }
-
-

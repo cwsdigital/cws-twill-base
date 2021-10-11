@@ -2,6 +2,7 @@
 
 namespace App\View\Composers;
 
+use App\Twill\Capsules\Menus\Models\Menu;
 use Illuminate\View\View;
 
 class MainMenuComposer

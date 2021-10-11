@@ -81,6 +81,7 @@ class MenuSeeder extends Seeder
                     ]);
 
                     $item->linkable()->associate($aboutPage);
+                    $item->save();
                 }
 
                 $contactPage = Page::forSlug('contact')->first();
@@ -88,12 +89,13 @@ class MenuSeeder extends Seeder
                 if ($contactPage) {
                     $item = $menuItemRepository->create([
                         'title' => [
-                            config('app.locale') => 'About',
+                            config('app.locale') => 'Contact',
                         ],
                         'menu_id' => $mainMenu->id,
                     ]);
 
                     $item->linkable()->associate($contactPage);
+                    $item->save();
                 }
 
                 $privacyPage = Page::forSlug('privacy-policy')->first();
@@ -101,12 +103,13 @@ class MenuSeeder extends Seeder
                 if ($privacyPage) {
                     $item = $menuItemRepository->create([
                         'title' => [
-                            config('app.locale') => 'About',
+                            config('app.locale') => 'Privacy Policy',
                         ],
-                        'menu_id' => $mainMenu->id,
+                        'menu_id' => $footerMenu->id,
                     ]);
 
                     $item->linkable()->associate($privacyPage);
+                    $item->save();
                 }
             }
         }

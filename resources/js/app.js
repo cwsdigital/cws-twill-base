@@ -1,6 +1,7 @@
-const tailwindTheme = preval.require('./tailwindTheme');
+import Alpine from 'alpinejs'
+import mainMenu from './components/main-menu.js'
 
-import mainMenu from './components/main-menu';
+Alpine.data('mainMenu', mainMenu);
 
-window.tailwindTheme = tailwindTheme;
-window.mainMenu = mainMenu;
+window.Alpine = Alpine;
+Alpine.start();
